@@ -1,7 +1,6 @@
-/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Global Styles */
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
@@ -13,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* CV Layout */
+
 .cv-container {
     display: flex;
     width: 70%;
@@ -25,7 +24,7 @@ body {
     overflow: hidden;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 30%;
     background: #2980b9;
@@ -86,7 +85,7 @@ body {
     padding: 20px;
 }
 
-/* Section Headings */
+
 h2 {
     font-size: 22px;
     color: #2c3e50;
@@ -95,7 +94,7 @@ h2 {
     margin-top: 20px;
 }
 
-/* Paragraph & List Items */
+
 p, li {
     font-size: 16px;
     color: #333;
@@ -164,14 +163,13 @@ ul {
     font-weight: bold;
 }
 
-/* Skill Colors */
 .python { background: #2980b9; width: 90%; }
 .java { background: #3498db; width: 80%; }
 .ml { background: #1abc9c; width: 85%; }
 .data-analysis { background: #f39c12; width: 75%; }
 .communication { background: #9b59b6; width: 70%; }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .cv-container {
         flex-direction: column;
