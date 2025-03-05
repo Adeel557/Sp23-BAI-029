@@ -1,0 +1,337 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+.head {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nav-links i {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-box input {
+    border: none;
+    padding: 5px 10px;
+    outline: none;
+    width: 200px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Icons */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+}
+
+.icons i {
+    cursor: pointer;
+}
+
+/* Category Section */
+.par {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Category Labels */
+.category-label {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    text-transform: uppercase;
+}
+
+/* Logo Section */
+.logo3 {
+    display: flex;
+    width: 100%;
+}
+
+.d1 {
+    width: 50%; /* First image takes 50% of total width */
+}
+
+.d1 img {
+    width: 100%; /* Full width of .d1 */
+    height: auto;
+}
+
+.d2 {
+    width: 50%; /* Next two images share the remaining 50% width */
+    display: flex;
+    flex-direction: column;
+}
+
+.d2 img {
+    width: 100%; /* Each image takes full width of .d2 */
+    height: 50%; /* Each image takes half the height of .d1 */
+}
+
+/* Last Image Section */
+.last {
+    width: 100%;
+    display: flex;
+    margin-top: 20px; /* Adds space above */
+    justify-content: space-between; /* Evenly distributes images */
+}
+
+.last div {
+    text-align: center; /* Centers the text below each image */
+    width: 32%; /* Each div takes equal space */
+}
+
+.last img {
+    width: 100%; /* Makes sure all images take full width of their container */
+    height: 250px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensures the images maintain aspect ratio and fill the space */
+    border-radius: 5px;
+}
+
+/* Styling for links below images */
+.last a {
+    display: block; /* Places the link on a new line below the image */
+    margin-top: 8px; /* Adds space between the image and the link */
+    font-size: 14px;
+    font-weight: bold;
+    color: #000; /* Black text */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.last a:hover {
+    color: #ff6600; /* Changes color on hover */
+}
+
+
+/* Email Sign-up Section */
+.email-signup {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    margin: 20px 0;
+}
+
+.email-signup h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.email-signup p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.email-signup form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.email-signup input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.email-signup button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.email-signup a {
+    display: block;
+    margin-top: 10px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Centering the button */
+button {
+    display: block; /* Makes it take full width */
+    margin: 20px auto; /* Centers the button horizontally */
+    padding: 10px 20px;
+    background-color: pink;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #444; /* Slightly lighter black on hover */
+}
+
+
+/* Centering the paragraph below the button */
+/* Centering the buttons and putting them on the same row */
+/* Centering the buttons and putting them on the same row */
+/* Centering the buttons and putting them on the same row */
+.email-comfort-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px; /* Space before the footer */
+}
+.buttons-section {
+    margin-bottom: 40px; /* Adjust the value as needed */
+}
+
+/* Buttons styling */
+.email-comfort-buttons button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0; /* Ensures no margin between the buttons */
+}
+
+/* Centering the paragraph below the buttons */
+main p {
+    text-align: center; /* Centers the text */
+    font-size: 16px; /* Optional: Adjust font size */
+    margin-top: 10px; /* Reduces space above the paragraph */
+}
+footer {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures wrapping to the next line if the container is too small */
+    justify-content: space-between; /* Makes the columns spread across the available space */
+}
+
+.footer-column {
+    margin-top: 20px;
+    flex: 1 1 18%; /* Allows columns to take up 18% of the container width and wrap when needed */
+    margin-bottom: 30px;
+    min-width: 200px; /* Ensures the columns don’t get too small */
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .footer-column {
+        flex: 1 1 100%; /* Stack the columns vertically on smaller screens */
+        margin-bottom: 20px;
+    }
+}
+

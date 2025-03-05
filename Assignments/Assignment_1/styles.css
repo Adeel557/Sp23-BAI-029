@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cv-container {
+    background: white;
+    padding: 25px;
+    width: 60%;
+    max-width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-pic {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.profile-pic img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2980b9;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-size: 18px;
+    color: #2980b9;
+}
+
+.contact {
+    font-size: 14px;
+    color: #555;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+p, li {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: left;
+}
+
+.skills li {
+    background-color: #2980b9;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .cv-container {
+        width: 90%;
+    }
+}
