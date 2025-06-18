@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Manage Products</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <div class="mb-3">
+        <a href="/admin/products/add" class="btn btn-success">Add New Product</a>
+    </div>
+
+    <% if (products && products.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td><img src="<%= product.image %>" alt="<%= product.name %>" style="width: 80px; height: 80px; object-fit: cover;"></td>
+                            <td><%= product.name %></td>
+                            <td>$<%= product.price.toFixed(2) %></td>
+                            <td><%= product.description %></td>
+                            <td>
+                                <a href="/admin/products/edit/<%= product._id %>" class="btn btn-sm btn-primary">Edit</a>
+                                <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display: inline-block;" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="alert alert-info">
+            No products available to manage. Please add some.
+        </div>
+    <% } %>
+</div> 

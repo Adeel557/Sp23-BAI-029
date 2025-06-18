@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us / Complaint</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <h2>Submit a Complaint</h2>
+
+        <% if (message) { %>
+            <div class="alert"><%= message %></div>
+        <% } %>
+
+        <form action="/complaints" method="POST" class="complaint-form">
+            <div class="form-group">
+                <label for="orderId">Order ID:</label>
+                <input type="text" name="orderId" id="orderId" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Complaint Message:</label>
+                <textarea name="message" id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Submit Complaint</button>
+        </form>
+
+        <hr>
+
+        <h3>Your Submitted Complaints</h3>
+        <% if (complaints && complaints.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Message</th>
+                        <th>Date Submitted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% complaints.forEach(function(complaint) { %>
+                        <tr>
+                            <td><%= complaint.orderId %></td>
+                            <td><%= complaint.message %></td>
+                            <td><%= new Date(complaint.timestamp).toLocaleString() %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>You have not submitted any complaints.</p>
+        <% } %>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

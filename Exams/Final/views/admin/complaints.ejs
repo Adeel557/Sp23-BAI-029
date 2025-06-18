@@ -1,0 +1,76 @@
+<div class="container mt-4">
+    <h2>Manage Complaints</h2>
+
+    <% if (typeof success !== 'undefined' && success) { %>
+        <div class="alert alert-success">Complaint status updated successfully!</div>
+    <% } %>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <% if (complaints && complaints.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Order</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Submitted</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% complaints.forEach(function(complaint) { %>
+                        <tr>
+                            <td>
+                                <strong><%= complaint.user.fullName %></strong><br>
+                                <small class="text-muted"><%= complaint.user.email %></small>
+                            </td>
+                            <td>
+                                Order #<%= complaint.order._id.toString().slice(-8) %><br>
+                                <small class="text-muted">$<%= complaint.order.totalAmount %> - 
+                                <%= new Date(complaint.order.createdAt).toLocaleDateString() %></small>
+                            </td>
+                            <td>
+                                <div class="message-preview">
+                                    <%= complaint.message.length > 100 ? 
+                                        complaint.message.substring(0, 100) + '...' : 
+                                        complaint.message %>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge bg-<%= complaint.status === 'pending' ? 'warning' : complaint.status === 'in-progress' ? 'info' : 'success' %>">
+                                    <%= complaint.status.charAt(0).toUpperCase() + complaint.status.slice(1) %>
+                                </span>
+                            </td>
+                            <td>
+                                <%= new Date(complaint.createdAt).toLocaleString() %>
+                            </td>
+                            <td>
+                                <form action="/admin/complaints/<%= complaint._id %>/status" method="POST" class="d-flex gap-2">
+                                    <select name="status" class="form-select form-select-sm" style="width: auto;">
+                                        <option value="pending" <%= complaint.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                                        <option value="in-progress" <%= complaint.status === 'in-progress' ? 'selected' : '' %>>In Progress</option>
+                                        <option value="resolved" <%= complaint.status === 'resolved' ? 'selected' : '' %>>Resolved</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="text-center py-5">
+            <p class="text-muted">No complaints have been submitted yet.</p>
+        </div>
+    <% } %>
+
+    <div class="mt-4">
+        <a href="/admin" class="btn btn-secondary">Back to Admin Dashboard</a>
+    </div>
+</div> 

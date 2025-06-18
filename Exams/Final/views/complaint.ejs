@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2>Contact Us / Submit a Complaint</h2>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <form action="/contact" method="POST" class="complaint-form">
+        <div class="form-group mb-3">
+            <label for="orderId" class="form-label">Select Order:</label>
+            <select name="orderId" id="orderId" class="form-select" required>
+                <option value="">Choose an order...</option>
+                <% if (orders && orders.length > 0) { %>
+                    <% orders.forEach(function(order) { %>
+                        <option value="<%= order._id %>">
+                            Order #<%= order._id.toString().slice(-8) %> - 
+                            $<%= order.totalAmount %> - 
+                            <%= new Date(order.createdAt).toLocaleDateString() %>
+                        </option>
+                    <% }) %>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="message" class="form-label">Complaint Message:</label>
+            <textarea name="message" id="message" rows="5" class="form-control" required 
+                      placeholder="Please describe your issue in detail (minimum 10 characters)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Complaint</button>
+    </form>
+
+    <div class="mt-4">
+        <a href="/my-complaints" class="btn btn-secondary">View My Complaints</a>
+    </div>
+</div> 

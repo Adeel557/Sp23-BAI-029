@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2 class="mb-4"><%= typeof product !== 'undefined' && product ? 'Edit Product' : 'Add New Product' %></h2>
+
+    <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <form action="<%= typeof product !== 'undefined' && product ? '/admin/products/edit/' + product._id : '/admin/products/add' %>" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%= typeof product !== 'undefined' && product ? product.name : '' %>" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required><%= typeof product !== 'undefined' && product ? product.description : '' %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" step="0.01" value="<%= typeof product !== 'undefined' && product ? product.price.toFixed(2) : '' %>" required>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="image" name="image" value="<%= typeof product !== 'undefined' && product ? product.image : '' %>" required>
+        </div>
+        <button type="submit" class="btn btn-primary"><%= typeof product !== 'undefined' && product ? 'Update Product' : 'Add Product' %></button>
+        <a href="/admin/products" class="btn btn-secondary">Cancel</a>
+    </form>
+</div> 

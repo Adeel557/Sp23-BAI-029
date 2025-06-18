@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Admin Dashboard</h2>
+
+    <% if (user) { %>
+        <p>Welcome, Admin <%= user.fullName %>!</p>
+    <% } %>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product Management</h5>
+                    <p class="card-text">Add, edit, and delete products.</p>
+                    <a href="/admin/products" class="btn btn-primary">Manage Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Management</h5>
+                    <p class="card-text">View and manage all customer orders.</p>
+                    <a href="/admin/orders" class="btn btn-primary">View Orders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

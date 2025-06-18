@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - Lucy and Yak</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/ecom.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2e41040746.js" crossorigin="anonymous"></script>
+
+  <%- typeof customStyles !== 'undefined' ? customStyles : '' %>
+</head>
+<body>
+  <header>
+    <div class="head">
+      <p>Independent Organic Recycled</p>
+    </div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/"><img src="/images/Lucy-and-yak-logo-2-150x150_100x@2x.png" alt="Logo"></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/shop">SHOP <i class="fas fa-chevron-down"></i></a></li>
+        <li><a href="#">OUR STORES <i class="fas fa-chevron-down"></i></a></li>
+        <li><a href="#">ABOUT US <i class="fas fa-chevron-down"></i></a></li>
+        <li><a href="#">3 FOR 2 ACCESSORIES</a></li>
+        <% if (user) { %>
+        <li><a href="/contact">CONTACT US</a></li>
+        <% } %>
+      </ul>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="icons">
+        <a href="#" class="icon-link"><i class="fas fa-heart"></i></a>
+        <% if (user) { %>
+          <div class="dropdown">
+            <a href="#" class="icon-link" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+              <li><span class="dropdown-item">Welcome, <%= user.fullName %></span></li>
+              <li><hr class="dropdown-divider"></li>
+              <% if (user.isAdmin) { %>
+              <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
+              <li><a class="dropdown-item" href="/admin/complaints">Manage Complaints</a></li>
+              <% } else { %>
+              <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+              <li><a class="dropdown-item" href="/contact">Contact Us</a></li>
+              <li><a class="dropdown-item" href="/my-complaints">My Complaints</a></li>
+              <% } %>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </div>
+          <a href="/cart" class="icon-link cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <% if (cart && cart.items && cart.items.length > 0) { %>
+              <span class="badge bg-primary rounded-pill"><%= cart.items.length %></span>
+            <% } %>
+          </a>
+        <% } else { %>
+          <a href="/login" class="icon-link"><i class="fas fa-user"></i></a>
+          <a href="/login" class="icon-link cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+          </a>
+        <% } %>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <img src="/images/Lucy-and-yak-logo-2-150x150_100x@2x.png" alt="">
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Stores & Suppliers</h3>
+        <ul>
+          <li><a href="#">Our Stores</a></li>
+          <li><a href="#">Our Suppliers</a></li>
+          <li><a href="#">Our Partners</a></li>
+          <li><a href="#">Our Charities</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Delivery</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Sizing</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .icon-link {
+      color: inherit;
+      text-decoration: none;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .cart-icon {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      min-width: 200px;
+      padding: 10px;
+    }
+
+    .dropdown-item {
+      padding: 8px 15px;
+      color: #333;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f8f9fa;
+    }
+  </style>
+</body>
+</html>
